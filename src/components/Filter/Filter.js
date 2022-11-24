@@ -1,3 +1,5 @@
+import './filter.scss';
+
 
 const Filter = ({getFilterParam, filterParam, getSearchParam}) => {
 
@@ -8,18 +10,14 @@ const Filter = ({getFilterParam, filterParam, getSearchParam}) => {
     ]
 
     const button = buttonsData.map(item => {
-        let clazz = {
-            outline: 'none'
-        }
+        let clazz = null
 
         if (filterParam === item.name) {
-            clazz = {
-                outline: '2px solid red'
-            }
+            clazz = 'active'
         }
         return (
             <button type='button' 
-                    style={clazz}
+                    className={`btn ${clazz}`}
                     key={item.name} 
                     onClick={() => getFilterParam(item.name)}>
                     {item.label}
@@ -28,9 +26,17 @@ const Filter = ({getFilterParam, filterParam, getSearchParam}) => {
     })
 
     return (
-        <div>
-            <input type='text' placeholder='search by contact only' onChange={(e) => getSearchParam(e.target.value)} />
-            {button}
+        <div className='filter-box'>
+            <div>
+                <span>Search: </span>
+                <input type='text' 
+                       placeholder='search by contact only' 
+                       onChange={(e) => getSearchParam(e.target.value)} /> 
+            </div>
+            <div className='button-set'>
+                <span>Filter by: </span>
+                {button}
+            </div>
         </div>
     )
 }

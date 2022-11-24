@@ -4,7 +4,7 @@ import ItemsList from './components/ItemsList/ItemsList'
 import Form from './components/Form/Form'
 import Filter from './components/Filter/Filter'
 
-import './App.css';
+import './App.scss';
 
 const App = () => {
 
@@ -16,6 +16,9 @@ const App = () => {
 
   const [filterParam, setFilterParam] = useState('all')
   const [searchParam, setSearchParam] = useState('')
+
+  const usersAmount = data.length
+  const vipUsersAmount = data.filter(items => items.vip).length
 
   const getSearchParam = (searchValue) => {
     setSearchParam(searchValue)
@@ -58,8 +61,8 @@ const App = () => {
 }
 
   return (
-    <div className="App">
-      <Header/>
+    <div className="app">
+      <Header usersAmount={usersAmount} vipUsersAmount={vipUsersAmount}/>
       <Filter getFilterParam={getFilterParam} filterParam={filterParam} getSearchParam={getSearchParam}/>
       <ItemsList data={searchedData} setData={setData} onVip={onVip} />
       <Form data={searchedData} setData={setData}/>

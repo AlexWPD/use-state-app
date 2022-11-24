@@ -1,0 +1,21 @@
+.filter-box {
+    padding: 20px;
+    background-color: #fff;
+
+    input {
+        padding: 10px;
+        margin-bottom: 20px;
+    }
+
+    span {
+        margin-right: 20px;
+    }
+
+    .btn {
+        background-color: #ccc;
+    }
+
+    .active {
+        background-color: #fff;
+    }
+}

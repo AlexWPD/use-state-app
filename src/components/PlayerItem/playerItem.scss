@@ -1,0 +1,20 @@
+.playerItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #ccc
+}
+
+.listItems {
+    display: flex;
+}
+
+.listItem {
+    display: flex;
+    padding: 5px 20px;
+    margin-right: 20px;
+    background-color: #fff;
+    text-align: center;
+}

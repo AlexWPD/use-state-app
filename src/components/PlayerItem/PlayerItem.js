@@ -1,3 +1,4 @@
+import './playerItem.scss';
 import { useState } from "react"
 
 const PlayerItem = ({contact, username, ewallet, room, vip, onDeleteItem, onVip, onEditItem}) => {
@@ -32,46 +33,62 @@ const PlayerItem = ({contact, username, ewallet, room, vip, onDeleteItem, onVip,
     }
 
     return (
-        <li>
+        <li className='playerItem'>
                 {edit ? 
-                    <li>
-                        <input 
-                            type="text" 
-                            placeholder="some"
-                            value={newContact}
-                            onChange={(e) => setNewContact(e.target.value)}
-                        />
-                        <input 
-                            type="text" 
-                            placeholder="some"
-                            value={newUsername}
-                            onChange={(e) => setNewUsername(e.target.value)}
-                        />
-                        <input 
-                            type="text" 
-                            placeholder="some"
-                            value={newEwallet}
-                            onChange={(e) => setNewEwallet(e.target.value)}
-                        />
-                        <input 
-                            type="text" 
-                            placeholder="some"
-                            value={newRoom}
-                            onChange={(e) => setNewRoom(e.target.value)}
-                        />
-                        <button onClick={onSave} >Save</button>
-                        <button type='button' onClick={onClose} >Отменить</button>
-                    </li>  
+                    <>
+                        <ul className='editBox'>
+                            <li>
+                                <input 
+                                    type="text" 
+                                    placeholder="some"
+                                    value={newContact}
+                                    onChange={(e) => setNewContact(e.target.value)}
+                                />
+                            </li>
+                            <li>
+                                <input 
+                                    type="text" 
+                                    placeholder="some"
+                                    value={newUsername}
+                                    onChange={(e) => setNewUsername(e.target.value)}
+                                />
+                            </li>
+                            <li>
+                                <input 
+                                    type="text" 
+                                    placeholder="some"
+                                    value={newEwallet}
+                                    onChange={(e) => setNewEwallet(e.target.value)}
+                                />
+                            </li>
+                            <li>
+                                <input 
+                                    type="text" 
+                                    placeholder="some"
+                                    value={newRoom}
+                                    onChange={(e) => setNewRoom(e.target.value)}
+                                />
+                            </li>
+                        </ul>
+                        <div className='button-set'>
+                            <button onClick={onSave} >Save</button>
+                            <button type='button' onClick={onClose} >Отменить</button>
+                        </div>
+                    </>
                 : 
-                    <ul>
-                        <li style={{cursor: 'pointer'}}>{contact} {emoji}</li>
-                        <li>{username}</li>
-                        <li>{ewallet}</li>
-                        <li>{room}</li>
-                        <button type='button' onClick={onVip}>Vip</button>
-                        <button type='button' onClick={onEdit} >Edit</button>
-                        <button type='button' onClick={onDeleteItem} >Delete</button>
-                    </ul>
+                    <>
+                        <ul className='listItems'>
+                            <li className='listItem' >{contact} {emoji}</li>
+                            <li className='listItem' >{username}</li>
+                            <li className='listItem' >{ewallet}</li>
+                            <li className='listItem' >{room}</li>
+                        </ul>
+                        <div className='button-set'>
+                            <button className='btn' type='button' onClick={onVip}>Add VIP</button>
+                            <button className='btn' type='button' onClick={onEdit} >Edit</button>
+                            <button className='btn' type='button' onClick={onDeleteItem} >Delete</button>
+                        </div>
+                    </>
                 }
 
         </li>
