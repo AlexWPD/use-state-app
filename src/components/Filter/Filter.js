@@ -29,7 +29,7 @@ const Filter = ({getFilterParam, filterParam, getSearchParam}) => {
 
     return (
         <div>
-            <input type='text' placeholder='what do you want to find?' onChange={(e) => getSearchParam(e.target.value)} />
+            <input type='text' placeholder='search by contact only' onChange={(e) => getSearchParam(e.target.value)} />
             {button}
         </div>
     )
