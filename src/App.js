@@ -9,9 +9,9 @@ import './App.css';
 const App = () => {
 
   const [data, setData] = useState([
-    {id: 0, contact: 'player1', username: 'user1', ewallet: 'skrill', room: 'pokerking', vip: false},
-    {id: 1, contact: 'player2', username: 'user2', ewallet: 'neteller', room: 'ggpoker', vip: false},
-    {id: 2, contact: 'player3', username: 'user3', ewallet: 'ecopayz', room: 'redstar', vip: false},
+    {id: 0, contact: 'skype', username: 'user1', ewallet: 'skrill', room: 'pokerking', vip: false},
+    {id: 1, contact: 'telegram', username: 'user2', ewallet: 'neteller', room: 'ggpoker', vip: false},
+    {id: 2, contact: 'email', username: 'user3', ewallet: 'ecopayz', room: 'redstar', vip: false},
   ])
 
   const [filterParam, setFilterParam] = useState('all')
@@ -26,7 +26,7 @@ const App = () => {
   }
 
   const searchedItems = (arrData, searchParam) => {
-    if (searchParam == '') {
+    if (searchParam === '') {
       return arrData
     }
 
