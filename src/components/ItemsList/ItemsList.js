@@ -59,9 +59,15 @@ const ItemsList = ({data, setData}) => {
     })
 
     return (
-        <ul>
-            {player}
-        </ul>
+        <>
+            {data.length > 0 ? 
+                null 
+            : 
+                <h3>Пусто</h3>}
+            <ul>
+                {player}
+            </ul>
+        </>
     )
 }
 

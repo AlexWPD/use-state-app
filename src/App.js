@@ -17,9 +17,6 @@ const App = () => {
   const [filterParam, setFilterParam] = useState('all')
   const [searchParam, setSearchParam] = useState('')
 
-  const usersAmount = data.length
-  const vipUsersAmount = data.filter(items => items.vip).length
-
   const searchedItems = (arrData, searchParam) => {
     if (searchParam === '') {
       return arrData
@@ -43,10 +40,14 @@ const App = () => {
 
   return (
     <div className="app">
-      <Header usersAmount={usersAmount} vipUsersAmount={vipUsersAmount}/>
-      <Filter setFilterParam={setFilterParam} filterParam={filterParam} setSearchParam={setSearchParam}/>
-      <ItemsList data={searchedData} setData={setData} />
-      <Form data={searchedData} setData={setData}/>
+      <Header data={data}/>
+      <Filter setFilterParam={setFilterParam} 
+              filterParam={filterParam} 
+              setSearchParam={setSearchParam}/>
+      <ItemsList data={searchedData} 
+                 setData={setData} />
+      <Form data={searchedData} 
+            setData={setData}/>
     </div>
   )
 }
