@@ -20,14 +20,6 @@ const App = () => {
   const usersAmount = data.length
   const vipUsersAmount = data.filter(items => items.vip).length
 
-  const getSearchParam = (searchValue) => {
-    setSearchParam(searchValue)
-  }
-
-  const getFilterParam = (param) => {
-    setFilterParam(param)
-  }
-
   const searchedItems = (arrData, searchParam) => {
     if (searchParam === '') {
       return arrData
@@ -58,12 +50,12 @@ const App = () => {
     })
 
     setData(newData)
-}
+  }
 
   return (
     <div className="app">
       <Header usersAmount={usersAmount} vipUsersAmount={vipUsersAmount}/>
-      <Filter getFilterParam={getFilterParam} filterParam={filterParam} getSearchParam={getSearchParam}/>
+      <Filter setFilterParam={setFilterParam} filterParam={filterParam} setSearchParam={setSearchParam}/>
       <ItemsList data={searchedData} setData={setData} onVip={onVip} />
       <Form data={searchedData} setData={setData}/>
     </div>

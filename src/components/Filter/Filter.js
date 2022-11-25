@@ -1,7 +1,7 @@
 import './filter.scss';
 
 
-const Filter = ({getFilterParam, filterParam, getSearchParam}) => {
+const Filter = ({setFilterParam, filterParam, setSearchParam}) => {
 
     const buttonsData = [
         {label: 'All', name: 'all'},
@@ -19,7 +19,7 @@ const Filter = ({getFilterParam, filterParam, getSearchParam}) => {
             <button type='button' 
                     className={`btn ${clazz}`}
                     key={item.name} 
-                    onClick={() => getFilterParam(item.name)}>
+                    onClick={() => setFilterParam(item.name)}>
                     {item.label}
             </button>
         )
@@ -31,7 +31,7 @@ const Filter = ({getFilterParam, filterParam, getSearchParam}) => {
                 <span>Search: </span>
                 <input type='text' 
                        placeholder='search by contact only' 
-                       onChange={(e) => getSearchParam(e.target.value)} /> 
+                       onChange={(e) => setSearchParam(e.target.value)} /> 
             </div>
             <div className='button-set'>
                 <span>Filter by: </span>
