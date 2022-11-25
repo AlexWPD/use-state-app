@@ -9,9 +9,9 @@ import './App.scss';
 const App = () => {
 
   const [data, setData] = useState([
-    {id: 0, contact: 'skype', username: 'user1', ewallet: 'skrill', room: 'pokerking', vip: false},
-    {id: 1, contact: 'telegram', username: 'user2', ewallet: 'neteller', room: 'ggpoker', vip: false},
-    {id: 2, contact: 'email', username: 'user3', ewallet: 'ecopayz', room: 'redstar', vip: false},
+    {id: 0, contact: 'live:54sdcvsd5c', username: 'raging-potato', ewallet: 'skrill', room: 'pokerking', vip: false},
+    {id: 1, contact: '@alex_wpd', username: 'ivan777', ewallet: 'neteller', room: 'ggpoker', vip: false},
+    {id: 2, contact: 'tinny@cbx.com', username: 'luckyAce', ewallet: 'ecopayz', room: 'redstar', vip: false},
   ])
 
   const [filterParam, setFilterParam] = useState('all')
@@ -41,22 +41,11 @@ const App = () => {
 
   const searchedData = searchedItems((filteredItems(data, filterParam)), searchParam)
 
-  const onVip = (id) => {
-    const newData = data.map(item => {
-        if (item.id === id) {
-            return {...item, vip: !item.vip}
-        }
-        return item
-    })
-
-    setData(newData)
-  }
-
   return (
     <div className="app">
       <Header usersAmount={usersAmount} vipUsersAmount={vipUsersAmount}/>
       <Filter setFilterParam={setFilterParam} filterParam={filterParam} setSearchParam={setSearchParam}/>
-      <ItemsList data={searchedData} setData={setData} onVip={onVip} />
+      <ItemsList data={searchedData} setData={setData} />
       <Form data={searchedData} setData={setData}/>
     </div>
   )

@@ -1,6 +1,6 @@
 import PlayerItem from '../PlayerItem/PlayerItem'
 
-const ItemsList = ({data, setData, onVip}) => {
+const ItemsList = ({data, setData}) => {
 
     const onDeleteItem = (id) => {
         setData(data => {
@@ -11,16 +11,36 @@ const ItemsList = ({data, setData, onVip}) => {
         // setData(newData)
     }
 
+    const onVip = (id) => {
+        // const newData = data.map(item => {
+        //     if (item.id === id) {
+        //         return {...item, vip: !item.vip}
+        //     }
+        //     return item
+        // })
+        // setData(newData)
+
+        setData(data => {
+            const newData = data.map(item => {
+                if (item.id === id) {
+                    return {...item, vip: !item.vip}
+                }
+                return item
+            })
+            return newData
+        })
+      }
 
     const onEditItem = (id, contact, username, ewallet, room) => {
-        const newData = data.map(item => {
-            if (item.id === id) {
-                return {...item, contact: contact, username: username, ewallet: ewallet, room: room }
-            }
-            return item
+        setData(data => {
+            const newData = data.map(item => {
+                if (item.id === id) {
+                    return {...item, contact: contact, username: username, ewallet: ewallet, room: room }
+                }
+                return item
+            })
+            return newData
         })
-
-        setData(newData)
     }
 
     const player = data.map(({id, contact, username, ewallet, room, vip}) => {
@@ -37,7 +57,6 @@ const ItemsList = ({data, setData, onVip}) => {
             />
         )
     })
-
 
     return (
         <ul>
